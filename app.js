@@ -69,4 +69,68 @@ function viewDepartments(){
     })
 }
 
+function viewRoles(){
+    connection.query('SELECT * FROM role', (err, res) => {
+        if (err) throw err
+
+        console.table(res.rows)
+        startApp()
+    })
+}
+
+function viewEmployees(){
+    connection.query('SELECT * FROM employee', (err, res) => {
+        if (err) throw err
+
+        console.table(res.rows)
+        startApp()
+    })
+}
+
+
+function addDepartment(){
+    inquirer.prompt ([
+        {
+            type: "input",
+            name:"newDepartment",
+            message:"Please enter the name of the new department."
+        }
+    ]).then(response => {
+        connection.query('INSERT INTO department (name) VALUES ($1)', [response.newDepartment])
+
+        console.log("New department added.")
+        startApp()
+
+    })
+}
+
+function addRole(){
+    inquirer.prompt ([
+        {
+            type: "input",
+            name:"title",
+            message:"What is the employee's title?"
+
+         },
+
+         {
+            type: "input",
+            name:"salary",
+            message:"What is the salary?"
+         },
+
+         {
+            type: "input",
+            name:"department_id",
+            message: "What is the department_id?"
+         }
+    ]).then(response => {
+        connection.query('INSERT INTO role (title, salary, department_id) VALUES ($1, $2, $3)', [response.title, response.salary, response.department_id])
+
+        console.log("New role added")
+        startApp()
+
+    })
+}
+
     startApp()

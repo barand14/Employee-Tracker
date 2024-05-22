@@ -39,7 +39,23 @@ VALUES ('Engineering');
 
 
 INSERT INTO role (title, salary, department_id)
-VALUES ('Lead Engineer', 150000, 2); 
+VALUES ('Lead Engineer', 130000, 2); 
+INSERT INTO role (title, salary, department_id)
+VALUES ("Legal Team Lead", 200000, 4);
+INSERT INTO role (title, salary, department_id)
+VALUES ("Accountant", 105000, 3);
+INSERT INTO role (title, salary, department_id)
+VALUES ("Sales Lead", 110000, 1);
+INSERT INTO role (title, salary, department_id)
+VALUES ("Salesperson", 90000, 1);
 
 INSERT INTO employee(first_name, last_name, manager_id, role_id)
-VALUES ('John', 'Davis', null, 1)
+VALUES ('John', 'Davis', null, 1);
+INSERT INTO employee (first_name, last_name, manager_id, role_id)
+VALUES ("Typic", "Patric", null, 2);
+INSERT INTO employee (first_name, last_name, manager_id, role_id)
+VALUES ("Mia","Nia",null,3);
+INSERT INTO employee (first_name, last_name, manager_id, role_id)
+VALUES ("Dolly", "Molly", 1, 4);
+INSERT INTO employee (first_name, last_name, manager_id, role_id)
+VALUES ("Chris", "Avis", 4, 5);
