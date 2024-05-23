@@ -1,6 +1,9 @@
 const inquirer = require ('inquirer');
-const {Pool} = require ('pg')
+const {Pool} = require ('pg');
+
+
 const cTable = require('console.table')
+
 
 const connection = new Pool ({
     host:"localhost",
@@ -133,4 +136,40 @@ function addRole(){
     })
 }
 
+function addEmployee(){
+    inquirer.prompt ([
+        {
+            type: "input",
+            name:"firstname",
+            message:"Please enter first name?"
+
+         },
+
+         {
+            type: "input",
+            name:"lastname",
+            message:"Please enter last name"
+         },
+
+         {
+            type: "input",
+            name:"manager_id",
+            message: "What is their manager name?"
+         },
+
+         {
+            type: "input",
+            name:"role_id",
+            message: "What is their role?"
+         }
+    ]).then(response => {
+        connection.query('INSERT INTO employee (first_name, last_name, manager_id, role_id,) VALUES ($1, $2, $3, $4)', [response.firstname, response.lastname, response.manager_id, response.role_id], (err, res) =>{
+            if (err) throw err;
+            
+            console.log("New employee added");
+            startApp()
+        });
+
+    });
+}
     startApp()

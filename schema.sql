@@ -31,31 +31,33 @@ CREATE TABLE employee (
   FOREIGN KEY (manager_id) REFERENCES employee(id)
 );
 
-
-INSERT INTO department (name)
-VALUES ('Sales');
 INSERT INTO department (name)
 VALUES ('Engineering');
+INSERT INTO department (name)
+VALUES ('Legal');
+INSERT INTO department (name)
+VALUES ('Accounting');
+INSERT INTO department (name)
+VALUES ('Sales');
 
-
 INSERT INTO role (title, salary, department_id)
-VALUES ('Lead Engineer', 130000, 2); 
+VALUES ('Lead Engineer', 130000, 1); 
 INSERT INTO role (title, salary, department_id)
-VALUES ("Legal Team Lead", 200000, 4);
+VALUES ('Legal Team Lead', 200000, 2);
 INSERT INTO role (title, salary, department_id)
-VALUES ("Accountant", 105000, 3);
+VALUES ('Accountant', 105000, 3);
 INSERT INTO role (title, salary, department_id)
-VALUES ("Sales Lead", 110000, 1);
+VALUES ('Sales Lead', 110000, 4);
 INSERT INTO role (title, salary, department_id)
-VALUES ("Salesperson", 90000, 1);
+VALUES ('Salesperson', 90000, 4);
 
 INSERT INTO employee(first_name, last_name, manager_id, role_id)
 VALUES ('John', 'Davis', null, 1);
 INSERT INTO employee (first_name, last_name, manager_id, role_id)
-VALUES ("Typic", "Patric", null, 2);
+VALUES ('Typic', 'Patric', null, 2);
 INSERT INTO employee (first_name, last_name, manager_id, role_id)
-VALUES ("Mia","Nia",null,3);
+VALUES ('Mia','Nia',null,3);
 INSERT INTO employee (first_name, last_name, manager_id, role_id)
-VALUES ("Dolly", "Molly", 1, 4);
+VALUES ('Dolly', 'Molly', 1, 4);
 INSERT INTO employee (first_name, last_name, manager_id, role_id)
-VALUES ("Chris", "Avis", 4, 5);
+VALUES ('Chris', 'Avis', 1, 3);
