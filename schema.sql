@@ -7,6 +7,7 @@ CREATE DATABASE employee_trackerdb;
 \c employee_trackerdb
 
 
+
 CREATE TABLE  department (
     id SERIAL PRIMARY KEY,
     name VARCHAR(30)
@@ -30,34 +31,24 @@ CREATE TABLE employee (
   FOREIGN KEY (role_id) REFERENCES role(id),
   FOREIGN KEY (manager_id) REFERENCES employee(id)
 );
+-- department Seeds
+INSERT INTO department (name)
+VALUES ('Engineering'), ('Legal'), ('Accounting'), ('Sales');
 
-INSERT INTO department (name)
-VALUES ('Engineering');
-INSERT INTO department (name)
-VALUES ('Legal');
-INSERT INTO department (name)
-VALUES ('Accounting');
-INSERT INTO department (name)
-VALUES ('Sales');
+-- role Seeds
+INSERT INTO role (title, salary, department_id)
+VALUES 
+('Lead Engineer', 130000.00, 1), 
+('Legal Team Lead', 200000.00, 2),
+('Accountant', 105000.00, 3),
+('Sales Lead', 110000.00, 4),
+('Salesperson', 90000.00, 4);
 
-INSERT INTO role (title, salary, department_id)
-VALUES ('Lead Engineer', 130000, 1); 
-INSERT INTO role (title, salary, department_id)
-VALUES ('Legal Team Lead', 200000, 2);
-INSERT INTO role (title, salary, department_id)
-VALUES ('Accountant', 105000, 3);
-INSERT INTO role (title, salary, department_id)
-VALUES ('Sales Lead', 110000, 4);
-INSERT INTO role (title, salary, department_id)
-VALUES ('Salesperson', 90000, 4);
-
-INSERT INTO employee(first_name, last_name, manager_id, role_id)
-VALUES ('John', 'Davis', null, 1);
+-- employee Seeds
 INSERT INTO employee (first_name, last_name, manager_id, role_id)
-VALUES ('Typic', 'Patric', null, 2);
-INSERT INTO employee (first_name, last_name, manager_id, role_id)
-VALUES ('Mia','Nia',null,3);
-INSERT INTO employee (first_name, last_name, manager_id, role_id)
-VALUES ('Dolly', 'Molly', 1, 4);
-INSERT INTO employee (first_name, last_name, manager_id, role_id)
-VALUES ('Chris', 'Avis', 1, 3);
+VALUES 
+('John', 'Davis', NULL, 1),
+('Typic', 'Patric', NULL, 2),
+('Mia', 'Nia', NULL, 3),
+('Dolly', 'Molly', 1, 4),
+('Chris', 'Avis', 1, 3);
